@@ -1,28 +1,31 @@
 {
-	"name": "litipk/php-bignumbers",
-	"description": "An opensource library to handle immutable big numbers inside PHP applications",
+	"name": "apapsch/litipk-php-bignumbers-adapter",
+	"description": "Adapts litipk/php-bignumers to php-decimal.io interface",
 	"keywords": ["bignum", "number", "decimal", "gmp", "bcmath"],
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Andrés Correa Casablanca",
-			"email": "castarco@litipk.com"
+			"name": "Ellen Papsch",
+			"email": "ellen.papsch@wine-logistix.de"
 		}
 	],
 	"support": {
-		"email": "castarco@litipk.com",
-		"issues": "http://github.com/Litipk/php-bignumbers/issues",
-		"source": "http://github.com/Litipk/php-bignumbers"
+		"email": "ellen.papsch@wine-logistix.de",
+		"issues": "http://github.com/apapsch/litipk-php-bignumbers-adapter/issues",
+		"source": "http://github.com/apapsch/litipk-php-bignumbers-adapter"
 	},
 	"require": {
-		"php": ">=7.0",
-		"ext-bcmath": "*"
+		"php": ">=7.3",
+		"php-decimal/php-decimal": "~1.1"
 	},
 	"require-dev": {
 		"psy/psysh": "^0.8",
 		"phpunit/phpunit": "~6.0",
 		"squizlabs/php_codesniffer": "^2.8",
 		"codeclimate/php-test-reporter": "^0.4"
+	},
+	"replace": {
+		"litipk/php-bignumbers": "*"
 	},
 	"minimum-stability": "stable",
 	"autoload": {
