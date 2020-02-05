@@ -24,7 +24,7 @@ composer.json file the following text:
 ```json
 {
     "require": {
-        "apapsch/php-bignumbers": "~0.9"
+        "apapsch/litipk-php-bignumbers-adapter": "~0.9"
     }
 }
 ```
