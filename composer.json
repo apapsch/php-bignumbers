@@ -16,7 +16,7 @@
 	},
 	"require": {
 		"php": ">=7.3",
-		"php-decimal/php-decimal": "~1.1"
+		"ext-bcmath": "*"
 	},
 	"require-dev": {
 		"psy/psysh": "^0.8",
