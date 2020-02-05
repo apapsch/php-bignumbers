@@ -1,19 +1,18 @@
-php-bignumbers [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Litipk/php-bignumbers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) [![Donate](https://img.shields.io/gratipay/litipk.svg "Donate")](https://gratipay.com/litipk/) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=castarco&url=https://github.com/Litipk/php-bignumbers/&title=php-bignumbers&language=&tags=github&category=software) 
+php-bignumbers 
 ==============
 
-A robust library to handle immutable big numbers inside PHP applications
-The current stable version is 0.8.3. Litipk\BigNumbers supports PHP 7.x.
+This is a fork of the original [php-bignumbers](https://github.com/Litipk/php-bignumbers),
+which does not seem to be maintained anymore. It can be used as drop-in replacement.
+Motivations of the fork are:
 
-
-Status Label  | Status Value
---------------|-------------
-Build | [![Build Status](https://api.travis-ci.org/Litipk/php-bignumbers.png?tag=0.7.0)](https://travis-ci.org/Litipk/php-bignumbers)
-HHVM support | **Unsupported**
-Coverage (from Coveralls): | [![Coverage Status](https://coveralls.io/repos/Litipk/php-bignumbers/badge.png?tag=0.7.0)](https://coveralls.io/r/Litipk/php-bignumbers?branch=master)
-Coverage (from Scrutinizer): | [![Code Coverage](https://scrutinizer-ci.com/g/Litipk/php-bignumbers/badges/coverage.png?s=58936d9334e7fc2413a43ad6cf1c7c1577f1f39c)](https://scrutinizer-ci.com/g/Litipk/php-bignumbers/)
-Code Quality (Scrutinizer): | [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/Litipk/php-bignumbers/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Litipk/php-bignumbers/)
-Code Quality (SensioLabs): | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9a279fbe-2b37-4612-abc0-027a3ad5d69c/mini.png)](https://insight.sensiolabs.com/projects/9a279fbe-2b37-4612-abc0-027a3ad5d69c)
-Dependencies: | [![Dependency Status](https://www.versioneye.com/user/projects/52cc91c6ec13754970000275/badge.png)](https://www.versioneye.com/user/projects/52cc91c6ec13754970000275)
+* Create proper numbers from float regardless of the locale. Some locales use comma
+  as decimal point and php-bignumbers relies on PHP string conversion of floats.
+* Round correctly. There are slight rounding inaccuracies in the original package.
+* Adapt the interface of [php-decimal](https://php-decimal.io/). This also solves
+  the rounding issue. This is still experimental in the `devel` branch.
+  
+The supported PHP version is 7.x. Once the adapter is merged, the supported version
+will be >=7.3.
 
 ## Getting started
 
@@ -25,23 +24,24 @@ composer.json file the following text:
 ```json
 {
     "require": {
-        "litipk/php-bignumbers": "^0.8"
+        "apapsch/php-bignumbers": "~0.9"
     }
 }
 ```
 
 ## Learn more
 
- * [Project Documentation](https://github.com/Litipk/php-bignumbers/wiki) : Here you can find how to use Litipk\BigNumbers in your applications.
- * [Chat Room](https://gitter.im/Litipk/php-bignumbers) : If you want to have a real-time chat with other Litipk\BigNumbers users or developers, you can do it here.
- * [Group / Mail List](https://groups.io/org/groupsio/php-bignumbers) : If a chat room isn't enough to post your doubts or ideas, you can join to our mail list.
+See [upstream wiki](https://github.com/Litipk/php-bignumbers/wiki) for useful information. 
 
 ## How to contribute
 
- * First of all, you can take a look on the [bugtracker](https://github.com/Litipk/php-bignumbers/issues) and decide if there is something that you want to do :wink: . If you think there are missing improvements in this file, then you are invited to modify the TODO list.
- * You can also send us bug reports using the same bugtracker.
- * If you are really interested on helping to improve Litipk\BigNumbers, we recommend to read the [contributing guidelines](https://github.com/Litipk/php-bignumbers/blob/master/CONTRIBUTING.md).
+Please send [issues](https://github.com/apapsch/php-bignumbers/issues) or
+[pull requests](https://github.com/apapsch/php-bignumbers/pulls) via Github.
+I don't have much plans for this package beyond the original motivations.
+Since the interface of `Litipk\BigNumbers\Decimal` is already quite big,
+you should not add any new methods there. Instead, create new classes or,
+if it's a bigger thing, create a new Composer package.
 
 ## License
 
-Litipk\BigNumbers is licensed under the [MIT License](https://github.com/Litipk/php-bignumbers/blob/master/LICENSE).
+Litipk\BigNumbers is licensed under the [MIT License](https://github.com/apapsch/php-bignumbers/blob/master/LICENSE).
